@@ -1,0 +1,43 @@
+<div class="col-md-12">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div align="center" class="collapse navbar-collapse" id="navbarSupportedContent">
+      <h2 align="center" class="header">Add Product</h2>
+    </div>
+  </nav>
+  <br />
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <br />
+    <div align="center" *ngIf="submitted" class="card bg-danger">
+      <font color="white">
+        <h5>Please complete the form</h5>
+      </font>
+    </div>
+    <div class="form-group">
+      <label for="name">Product Name:</label>
+      <input formControlName="name" name="name" class="form-control" id="name">
+    </div>
+
+    <div class="form-group">
+      <label for="barCode">Bar Code:</label>
+      <input type="number" formControlName="barCode" name="barCode" class="form-control" id="barCode">
+    </div>
+
+    <div class="form-group">
+      <label for="category">Product Category:</label>
+      <select class="form-control" id="category" formControlName="category">
+        <option value="" disabled selected>Please select</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Price:</label>
+      <input type="number" formControlName="price" name="price" class="form-control" id="price">
+    </div>
+    <div align="center">
+      <button class="btn btn-danger btn-lg" (click)="onCancel()">Cancel</button>
+      &nbsp; &nbsp;
+      <button class="btn btn-success btn-lg">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="col-md-12">
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light">
+  <div  align="center" class="collapse navbar-collapse"  id="navbarSupportedContent">
+      <h2 align="center" class="header"> Product Details</h2>
+  </div>
+  </nav><br />
+  <button class="btn btn-primary btn-lg" (click)="addProduct()"> Add User</button><br /><br />
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Product Name</th>
+      <th>Bar Code</th>
+      <th>Product Category</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let productInfo of productInfos">
+      <td class="hidden">{{productInfo.id}}</td>
+      <td>{{productInfo.name}}</td>
+      <td>{{productInfo.barCode}}</td>
+      <td>{{productInfo.category}}</td>
+      <td>{{productInfo.price | currency:'CAD'}}</td>
+      <td><button class="btn btn-danger" (click)="deleteProduct(productInfo)"> Delete</button>
+        <button class="btn btn-warning" (click)="editProduct(productInfo)" style="margin-left: 20px;"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+{
+  "/api/*": {
+    "target": "http://localhost:8099/store/retail/api/v1/products",
+    "secure": false
+  }
+}
